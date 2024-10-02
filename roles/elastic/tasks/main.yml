@@ -1,0 +1,8 @@
+---
+
+- import_tasks: install.yml
+  tags:
+    - install_elastic
+    - install
+
+...

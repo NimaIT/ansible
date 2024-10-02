@@ -1,0 +1,6 @@
+---
+
+LOGSTASH_DIR: "/usr/share/logstash"
+LOGSTASH_CONF_DIR: "/etc/logstash/conf.d"
+
+...

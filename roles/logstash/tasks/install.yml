@@ -1,0 +1,57 @@
+---
+
+# - name: Ensure Python 3 is installed
+#   apt:
+#     name: python3
+#     state: present
+
+# - name: Ensure firewalld is installed
+#   apt:
+#     name: firewalld
+#     state: present
+
+# - name: Start and enable firewalld
+#   service:
+#     name: firewalld
+#     state: started
+#     enabled: true
+
+# - name: Open TCP port 8080
+#   firewalld:
+#     port: 8080/tcp
+#     permanent: true
+#     state: enabled
+
+- name: Ensure UFW is installed
+  apt:
+    name: ufw
+    state: present
+
+- name: Allow port 8080 through the firewall
+  ufw:
+    rule: allow
+    port: '8080'
+    proto: tcp
+
+- name: Enable UFW
+  ufw:
+    state: enabled
+    policy: allow
+
+# - name: Reload firewalld to apply changes
+#   firewalld:
+#     immediate: true
+#     state: reloaded
+
+# - name: Install Logstash
+#   apt:
+#     name: logstash
+#     state: latest
+
+- name: Ensure Logstash is running
+  service:
+    name: logstash
+    state: started
+    enabled: true
+
+...

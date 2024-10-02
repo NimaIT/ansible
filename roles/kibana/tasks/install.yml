@@ -1,0 +1,14 @@
+---
+
+- name: Install Kibana
+  apt:
+    name: kibana
+    state: latest
+
+- name: Ensure Kibana is running
+  service:
+    name: kibana
+    state: started
+    enabled: true
+
+...

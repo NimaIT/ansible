@@ -1,0 +1,17 @@
+---
+
+- name: Copy logstash.conf to Logstash configuration directory
+  copy:
+    src: logstash.conf
+    dest: "{{ LOGSTASH_CONF_DIR }}/logstash.conf"
+    owner: logstash
+    group: logstash
+    mode: '0644'
+
+- name: Restart Logstash to apply new configuration
+  service:
+    name: logstash
+    state: restarted
+
+
+...
